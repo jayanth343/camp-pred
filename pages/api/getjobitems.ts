@@ -7,8 +7,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const [rows]: any[] = await pool.query(query);
     const joblist = rows.map((row: any) => row.job_id);
     if (rows.length === 0) {
-        res.status(404).json({ message: "No jobs found" });
+        res.status(404).json({ message: "No jobs found" ,status:404});
     } else {
-        res.status(200).json({ joblist: joblist });
+        res.status(200).json({ joblist: joblist ,status:200});
     }
 }
